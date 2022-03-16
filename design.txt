@@ -1,0 +1,28 @@
+An app that gets your full name, and asks for preferred seat, card type, card number, cvc and card holder name. If
+everything passes then you purchase the cinema ticket.
+Classes:
+    User:
+        name
+        buy(seat, card)
+
+    Card:
+        database
+        type
+        number
+        cvc
+        holder_name
+        validate(price)
+
+    Seat:
+        database
+        seat_number
+        price
+        is_free()
+        occupy()
+
+    Ticket:
+        id
+        user
+        price
+        seat
+        to_pdf()
