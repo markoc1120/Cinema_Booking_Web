@@ -4,6 +4,7 @@ from files.user import User
 from files.ticket import Ticket
 from flask_bootstrap import Bootstrap
 from flask import Flask, render_template, redirect, url_for, flash, abort
+from forms import RegisterForm
 
 
 
@@ -21,6 +22,7 @@ from flask import Flask, render_template, redirect, url_for, flash, abort
 # user1.buy(seat1, card1, ticket1)
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
 
 
@@ -28,9 +30,11 @@ Bootstrap(app)
 def home():
     return render_template("index.html")
 
+
 @app.route('/booking')
 def booking():
-    return render_template("booking.html")
+    form = RegisterForm()
+    return render_template("booking.html", form=form)
 
 
 if __name__ == "__main__":
